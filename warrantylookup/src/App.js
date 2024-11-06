@@ -4,6 +4,7 @@ import './App.css';
 function App() {
   const [serialNumbers, setSerialNumbers] = useState('');
   const [manufacturer, setManufacturer] = useState('dell');
+  const [darkMode, setDarkMode] = useState(false);
 
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
@@ -60,7 +61,15 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className={`App ${darkMode ? 'dark' : ''}`}>
+      <button 
+        className="theme-toggle"
+        onClick={() => setDarkMode(!darkMode)}
+        aria-label="Toggle dark mode"
+      >
+        {darkMode ? '☀️' : '🌙'}
+      </button>
+      
       <header className="app-header">
         <h1>Warranty Lookup Tool</h1>
         <p className="subtitle">Check warranty status for multiple devices at once</p>
