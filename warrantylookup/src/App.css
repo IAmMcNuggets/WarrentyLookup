@@ -305,7 +305,21 @@ button.secondary:hover {
 
   .manufacturer-buttons {
 
-    flex-direction: column;
+    flex-direction: row;
+
+    gap: 8px;
+
+  }
+
+
+
+  .manufacturer-btn {
+
+    padding: 12px 16px;
+
+    font-size: 16px;
+
+    min-width: 80px;
 
   }
 
