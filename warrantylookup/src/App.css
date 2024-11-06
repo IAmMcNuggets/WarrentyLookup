@@ -326,3 +326,61 @@ button.secondary:hover {
   }
 
 }
+
+/* Update the theme toggle styles */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  padding: 12px;
+  border-radius: 50%;
+  border: none;
+  background: var(--button-bg);
+  cursor: pointer;
+  font-size: 20px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 
+    0 6px 8px rgba(0, 0, 0, 0.1),
+    0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+.theme-toggle:active {
+  transform: translateY(0) scale(0.95);
+}
+
+/* Dark mode specific styles for the toggle */
+.dark .theme-toggle {
+  background: var(--button-bg);
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.3),
+    0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Add smooth transition for all theme changes */
+.App, button, textarea, input {
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 600px) {
+  .theme-toggle {
+    top: 12px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+}
