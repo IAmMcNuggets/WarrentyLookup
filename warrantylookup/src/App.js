@@ -20,7 +20,7 @@ function App() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
     const serials = serialNumbers
@@ -28,7 +28,7 @@ function App() {
       .map(s => s.trim())
       .filter(s => s.length > 0);
 
-    serials.forEach(serial => {
+    for (const serial of serials) {
       let url;
       switch(manufacturer) {
         case 'dell':
@@ -41,7 +41,7 @@ function App() {
           url = `https://support.hp.com/us-en/checkwarranty/${serial}`;
           break;
         default:
-          return;
+          continue;
       }
       
       window.open(
@@ -49,7 +49,9 @@ function App() {
         `warranty_${serial}`,
         'height=800,width=600,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no,status=yes'
       );
-    });
+
+      await new Promise(resolve => setTimeout(resolve, 500));
+    }
   };
 
   const handleClear = () => {
